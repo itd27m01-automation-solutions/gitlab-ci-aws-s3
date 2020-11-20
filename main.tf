@@ -4,7 +4,7 @@ module "s3_bucket" {
 
   for_each = toset(var.gitlab_s3_buckets_suffixes)
 
-  bucket = "itd27m01-${var.environment}-${each.key}"
+  bucket = "${var.environment}-gitlab-ci-aws-${each.key}"
   acl    = "private"
 
   versioning = {
